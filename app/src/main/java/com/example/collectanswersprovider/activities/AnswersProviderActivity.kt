@@ -41,22 +41,22 @@ class AnswersProviderActivity : AppCompatActivity() {
                 questionToPopulate.contains(IMAGE, true) -> {
                     val uri = viewModel.getImageAnswer();
                     intent.putExtra(key, uri)
-                    intent.clipData?.addItem(ClipData.Item(null, null, uri))
+                    intent.clipData?.addItem(ClipData.Item(uri))
                 }
                 questionToPopulate.contains(AUDIO, true) -> {
                     val uri = viewModel.getAudioAnswer();
                     intent.putExtra(key, uri)
-                    intent.clipData?.addItem(ClipData.Item(null, null, uri))
+                    intent.clipData?.addItem(ClipData.Item(uri))
                 }
                 questionToPopulate.contains(VIDEO, true) -> {
                     val uri = viewModel.getVideoAnswer();
                     intent.putExtra(key, uri)
-                    intent.clipData?.addItem(ClipData.Item(null, null, uri))
+                    intent.clipData?.addItem(ClipData.Item(uri))
                 }
                 questionToPopulate.contains(FILE, true) -> {
                     val uri = viewModel.getFileAnswer();
                     intent.putExtra(key, uri)
-                    intent.clipData?.addItem(ClipData.Item(null, null, uri))
+                    intent.clipData?.addItem(ClipData.Item(uri))
                 }
             }
         }
