@@ -11,7 +11,6 @@ import com.example.collectanswersprovider.*
 import com.example.collectanswersprovider.activities.viewmodels.AnswersProviderActivityViewModel
 import kotlinx.android.synthetic.main.activity_answers_provider.*
 
-
 class AnswersProviderActivity : AppCompatActivity() {
     private val viewModel: AnswersProviderActivityViewModel by viewModels()
 
@@ -39,10 +38,26 @@ class AnswersProviderActivity : AppCompatActivity() {
                 questionToPopulate.contains(INTEGER, true) -> intent.putExtra(key, viewModel.getIntegerAnswer())
                 questionToPopulate.contains(DECIMAL, true) -> intent.putExtra(key, viewModel.getDecimalAnswer())
                 questionToPopulate.contains(TEXT, true) -> intent.putExtra(key, viewModel.getTextAnswer())
-                questionToPopulate.contains(IMAGE, true) -> intent.clipData?.addItem(ClipData.Item(key, null, viewModel.getImageAnswer()))
-                questionToPopulate.contains(AUDIO, true) -> intent.clipData?.addItem(ClipData.Item(key, null, viewModel.getAudioAnswer()))
-                questionToPopulate.contains(VIDEO, true) -> intent.clipData?.addItem(ClipData.Item(key, null, viewModel.getVideoAnswer()))
-                questionToPopulate.contains(FILE, true) -> intent.clipData?.addItem(ClipData.Item(key, null, viewModel.getFileAnswer()))
+                questionToPopulate.contains(IMAGE, true) -> {
+                    val uri = viewModel.getImageAnswer();
+                    intent.putExtra(key, uri)
+                    intent.clipData?.addItem(ClipData.Item(null, null, uri))
+                }
+                questionToPopulate.contains(AUDIO, true) -> {
+                    val uri = viewModel.getAudioAnswer();
+                    intent.putExtra(key, uri)
+                    intent.clipData?.addItem(ClipData.Item(null, null, uri))
+                }
+                questionToPopulate.contains(VIDEO, true) -> {
+                    val uri = viewModel.getVideoAnswer();
+                    intent.putExtra(key, uri)
+                    intent.clipData?.addItem(ClipData.Item(null, null, uri))
+                }
+                questionToPopulate.contains(FILE, true) -> {
+                    val uri = viewModel.getFileAnswer();
+                    intent.putExtra(key, uri)
+                    intent.clipData?.addItem(ClipData.Item(null, null, uri))
+                }
             }
         }
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
