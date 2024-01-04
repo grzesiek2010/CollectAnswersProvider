@@ -1,4 +1,4 @@
-package com.example.collectanswersprovider.activities
+package com.example.collectanswersprovider
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
