@@ -1,4 +1,4 @@
-package com.example.collectanswersprovider.activities
+package com.example.collectanswersprovider
 
 import android.app.Activity
 import android.content.ClipData
@@ -8,16 +8,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.collectanswersprovider.*
-import com.example.collectanswersprovider.activities.viewmodels.AnswersProviderActivityViewModel
-import kotlinx.android.synthetic.main.activity_answers_provider.*
+import com.example.collectanswersprovider.databinding.ActivityAnswersProviderBinding
 
 class AnswersProviderActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAnswersProviderBinding
     private val viewModel: AnswersProviderActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_answers_provider)
+        binding = ActivityAnswersProviderBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         viewModel.addQuestionsToPopulate(intent.extras)
 
@@ -25,7 +25,7 @@ class AnswersProviderActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.no_detected_questions, Toast.LENGTH_LONG).show()
         }
 
-        return_answer_button.setOnClickListener { returnAnswer() }
+        binding.returnAnswerButton.setOnClickListener { returnAnswer() }
     }
 
     private fun returnAnswer() {

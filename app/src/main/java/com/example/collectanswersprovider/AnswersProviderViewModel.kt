@@ -1,10 +1,9 @@
-package com.example.collectanswersprovider.activities.viewmodels
+package com.example.collectanswersprovider
 
 import android.net.Uri
 import android.os.Bundle
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModel
-import com.example.collectanswersprovider.*
 import com.example.collectanswersprovider.CollectAnswersProviderApplication.Companion.applicationContext
 import java.io.File
 import kotlin.random.Random
