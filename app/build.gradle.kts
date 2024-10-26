@@ -26,8 +26,12 @@ android {
     namespace = "com.example.collectanswersprovider"
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
-    implementation("androidx.activity:activity-ktx:1.8.2")
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.activity:activity-ktx:1.9.3")
+    implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
